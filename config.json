@@ -1,0 +1,80 @@
+{
+    "game_config": {
+        "background_dir": "./images/background.png",
+        "full_heart_dir": "./images/full_heart.png",
+        "broken_heart_dir": "./images/broken_heart.png",
+        "coin_dir": "./images/coin.png",
+        "bullet_dir": "./images/fireball.png",
+
+        "heart_width": 40,
+        "heart_height": 40,
+
+        "villain_width": 50,
+        "villain_height": 70,
+
+        "coin_width": 30,
+        "coin_height": 30,
+
+        "bullet_speed": 8,
+        "bullet_width": 30,
+        "bullet_height": 30,
+        "bullet_cooltime": 3,
+
+        "rect_padding": 7,
+
+        "beginning_dis": 100,
+
+        "player": {
+            "image_dir": "./images/player.png",
+            "hp_refill": true,
+
+            "max_hp": 3,
+            "speed": 5,
+
+            "width": 50,
+            "height": 70
+        },
+
+        "villain_types": 3,
+        "villain": [
+            {
+                "image_dir": "./images/villain_1.png",
+                "speed": 6
+            },
+            {
+                "image_dir": "./images/villain_2.png",
+                "speed": 2,
+                "shooting_bullet": true
+            },
+            {
+                "image_dir": "./images/villain_3.png",
+                "speed": 3,
+                "following_player": true
+            }
+        ],
+
+        "total_level": 1,
+        "levels": [
+            {
+                "villains": [5, 0, 0],
+                "coins": 10
+            },
+            {
+                "villains": [0, 5, 0],
+                "coins": 10
+            },
+            {
+                "villains": [5, 0, 1],
+                "coins": 10
+            },
+            {
+                "villains": [3, 3, 2],
+                "coins": 20
+            },
+            {
+                "villains": [5, 5, 2],
+                "coins": 20
+            }
+        ]
+    }
+}
