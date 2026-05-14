@@ -32,6 +32,9 @@ def step(action):
     return frame
 
 
+game.start_new_level()
+
+
 with gradio.Blocks() as demo:
     gradio.Markdown("### Game")
     img = gradio.Image()

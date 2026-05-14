@@ -9,17 +9,6 @@ from game_objects import Bullet, Coin, Player, Villain
 
 WIDTH, HEIGHT = 1200, 800
 
-MANUAL_MODE = 1
-TRAIN_MODE = 2
-AUTO_MODE = 3
-
-COIN_EARN_REWARD = 10
-HP_LOSE_REWARD = -20
-DEAD_REWARD = -50
-LEVEL_CLEAR_REWARD = 50
-
-BATCH_SIZE = 64
-
 font = pygame.font.SysFont("malgungothic", 24)
 big_font = pygame.font.SysFont("malgungothic", 40)
 
@@ -34,8 +23,6 @@ class Game:
 
     start_time: float
 
-    total_reward: int
-
     def __init__(self, _game_config, _screen):
         self._game_config = _game_config
         self.screen = _screen
@@ -47,7 +34,6 @@ class Game:
         self.player = Player(self._game_config)
         self.clear_objects()
 
-        self.start_time = time.time()
         self.current_level = 0
 
     def load_images(self):
@@ -80,7 +66,6 @@ class Game:
         self.start_time = time.time()
 
         self.current_level = 0
-        self.total_reward = 0
 
     def draw_ui(self):
         cnt = 0
@@ -142,6 +127,9 @@ class Game:
             self.draw_ui()
 
     def start_new_level(self):
+        if self.current_level == 0:
+            self.start_time = time.time()
+
         self.current_level += 1
         self.player.start_new_level()
 
@@ -182,6 +170,7 @@ class Game:
     def game_play(self, action=None):
         if len(self.coins) == 0:
             self.start_new_level()
+
         if self.player.is_dead:
             return
 
