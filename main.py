@@ -53,4 +53,4 @@ with gradio.Blocks() as demo:
 
     demo.load(lambda: step(0), outputs=img)
 
-demo.launch(server_port=10000)
+demo.launch(server_port=10000, server_name="0.0.0.0")
